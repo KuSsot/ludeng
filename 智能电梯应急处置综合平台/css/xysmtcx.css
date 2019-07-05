@@ -1,0 +1,103 @@
+
+/*响应式媒体查询版本*/
+html {
+    width: 100%;
+    height: 100%;
+    font-size:62.5%; /* 10÷16=62.5% */
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100%;
+    height: 100%;
+    color:aliceblue;
+}
+.dt-body {
+    width: 100%;
+    height: 100%;
+}
+/*<!--头部标签栏-->*/
+.dt-nav {
+    width: 100%;
+    background-color: #11285C;
+    color: aliceblue;
+    white-space: nowrap;
+}
+.dt-nav>div {
+    text-align: center;
+    width: auto;
+}
+/*<!--头部标签栏 end-->*/
+
+/*<!--下边内容栏-->*/
+.dt-content {
+    width: 100%;
+    /*-webkit： safari、chrome浏览器*/
+    height: -webkit-calc(100% - 0.81rem);
+    /*-moz： firefox浏览器*/
+    height: -moz-calc(100% - 0.81rem);
+    /*默认*/
+    height:calc(100% - 0.81rem);
+    background: linear-gradient(#1e2e68, #000000);
+    display: flex;
+    flex-wrap: wrap;
+}
+    /*方框的背景色*/
+.purple {/*紫色*/
+    background: linear-gradient(#7879D3, #5D5DCC);
+}
+.blue {/*蓝色*/
+    background: linear-gradient(#3591FA, #1C6BD7);
+}
+.green {/*青绿色*/
+    background: linear-gradient(#00C4BF, #01B8B7);
+}
+.red {/*橙红色*/
+    background: linear-gradient(#FF8566, #F56D50);
+}
+    /*方框的背景色 end*/
+    /*字的颜色*/
+.fpurple{/*紫色*/
+    color: #7879D3;
+}
+.fblue{/*蓝色*/
+    color: #3591FA;
+}
+.fgreen{/*青绿色*/
+    color: #00C4BF;
+}
+.fred{/*橙红色*/
+    color: #FF8566;
+}
+.fyellow{/*黄色*/
+    color: #f4e925;
+}
+    /*字的颜色 end*/
+/*<!--下边内容栏 end-->*/
+
+/*滚动数字的样式*/
+#all{
+    width: auto;
+    margin: 0 0.2rem;
+    display: inline-block;
+}
+#all .t_num i {
+    width: 0.4rem;
+    height: 0.58rem;
+    display: inline-block;
+    background: url(../img/number1.png) no-repeat;
+    background-size: 100% auto ;
+    background-position: 0 0;
+}
+/*滚动数字的样式 end */
+
+/*去掉百度地图的文字LOGO*/
+.BMap_cpyCtrl {
+    display:none;
+}
+.anchorBL{
+    display:none;
+}
+/*去掉百度地图的文字LOGO end*/

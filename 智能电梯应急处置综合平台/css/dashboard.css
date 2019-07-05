@@ -1,0 +1,410 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 50px;
+    overflow: hidden;
+}
+
+a:link {
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+   }
+a:visited {
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+body, div, ul {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+li { list-style: none; }
+
+.fgreen {
+    color: #00C4BF;
+}
+.fblue {
+    color: #1C6BD7;
+}
+.fyellow {
+    color: #f4e925;
+}
+.fred {
+    color: #FF8566;
+}
+
+.green {
+    background: linear-gradient(#00C4BF, #01B8B7);
+}
+
+.blue {
+    background: linear-gradient(#3591FA, #1C6BD7);
+}
+
+.purple {
+    background: linear-gradient(#7879D3, #5D5DCC);
+}
+
+.red {
+    background: linear-gradient(#FF8566, #F56D50);
+}
+#dashboard {
+    height: 100%;
+    width: 100%;
+}
+#dashboard .dash-header{
+    position: relative;
+    font-weight: bolder;
+    color: aliceblue;
+    font-size: 28px;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    background-color: #11285C;
+    width: 100%;
+    border-bottom: solid 1px #545f8c;
+}
+
+#dashboard .dash-header .sys-time {
+    position: absolute;
+    font-size: .6rem;
+    top: 0;
+    left: 2%;
+    font-weight: 300;
+}
+
+#dashboard .dash-header .sys-role {
+    position: absolute;
+    font-size: .6rem;
+    top: 0;
+    right: 2%;
+    font-weight: 300;
+}
+
+#dashboard .dash-header .sys-time a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#dashboard .dash-header .sys-role a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#dashboard .dash-body{
+    position: absolute;
+    top: 61px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: #081440; */
+    background: linear-gradient(#1e2e68, #000000);
+    /* background: url('../images/login/bg_login.png'); */
+    /* background-size: cover; */
+}
+
+.left {
+    padding-top: 20px;
+    float: left;
+    width: 27%;
+}
+
+.main {
+    position: relative;
+    float: left;
+    width: 41.5%;
+}
+
+.main #map {
+    height: 22rem;
+    width: 100%;
+}
+
+.right {
+    padding-top: 20px;
+    float: left;
+    width: 30%;
+}
+
+.BMap_cpyCtrl {
+    display:none;
+}
+.anchorBL{
+    display:none;
+}
+
+.base-info {
+    padding-left: 20px;
+
+}
+.base-info-title {
+    font-weight: 600;
+    color: #e1e4ee;
+    font-size: 0.7rem;
+}
+
+.base-info-warp {
+    width: 80%;
+    margin-left: 1rem;
+    margin-top: .6rem;
+    overflow: hidden;
+}
+
+.base-info-item {
+    
+    border-radius: 5px;
+    font-size: 0.3rem;
+    color: #ffffff;
+    float: left;
+    width: 5rem;
+    height: 3rem;
+    margin-right: 0.6rem;
+    margin-top: 0.6rem;
+    text-align: center;
+
+}
+
+.base-info-item-left {
+    writing-mode: vertical-rl;
+    float: left;
+    color: #ffffff;
+    /* width: 15%; */
+    padding: 0 2%;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.3)
+}
+
+.base-info-item-right {
+/*    float: left;
+    width: 78%;*/
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1.2rem;
+}
+
+.elevator-info {
+    height: 12rem;
+    padding-left: 20px;
+    margin-top: 1rem;
+}
+
+.base-info-subTitle{
+    position: relative;
+    font-weight: bold;
+    color: #589FCD;
+    font-size: 0.4rem;
+    margin-top: 1rem;
+    margin-bottom: .8rem;
+    padding-left: 1rem;
+}
+
+.base-info-subTitle:after {
+    position: absolute;
+    top: 0.2rem;
+    left: 0.6rem;
+    content: "";
+    width: 2px;
+    height: 0.5rem;
+    background-color: #589FCD;
+}
+
+.lineGraph2 {
+    width: 80%;
+    height: 8rem;
+}
+
+.ele-info-warp {
+    margin-left: 1rem;
+    width: 90%;
+    overflow: hidden;
+}
+
+.ele-info-item {
+    margin-right: 4px;
+    margin-bottom: 4px;
+    float: left;
+    width: 19%;
+    height: 3.9rem;
+    background-color: #0B1F49;
+}
+
+.ele-title {
+    position: relative;
+    text-indent: 12px;
+    margin-top: 0.788rem;
+    color: #68BBF1;
+    font-size: 0.533rem;
+    font-weight: 300;
+}
+
+.ele-title::after{
+    position: absolute;
+    top: 0.2rem;
+    left: 0;
+    content: "";
+    width: 2px;
+    height: 0.5rem;
+    background-color: #68BBF1;
+}
+
+.ele-num {
+    margin-top: .4rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.line-warp{
+    /* margin-top: 6rem; */
+    height: 12rem;
+    padding-left: 20px;
+}
+
+.lineGraph {
+    width: 80%;
+    height: 8rem;
+}
+
+.info-sub-warp {
+    margin-left: 1rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.info-sub-item {
+    margin-right: 4px;
+    margin-bottom: 4px;
+    float: left;
+    width: 23.65%;
+    height: 3.9rem;
+    background-color: #0B1F49;
+}
+
+.info-sub-item .num{
+    margin: 0 1px;
+    width: .4rem
+}
+
+.info-title {
+    position: relative;
+    text-indent: 12px;
+    margin-top: 0.788rem;
+    color: #68BBF1;
+    font-size: 0.533rem;
+    font-weight: 300;
+}
+
+.info-title::after{
+    position: absolute;
+    top: 0.2rem;
+    left: 0;
+    content: "";
+    width: 2px;
+    height: 0.5rem;
+    background-color: #68BBF1;
+}
+
+.info-num {
+    text-indent: 14px;
+    margin-top: .4rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.gaugeGraph {
+    float: left;
+    height: 8.5rem;
+    width: 50%;
+}
+
+.pieGraph {
+    width: 100%;
+    height: 6.8rem;
+}
+
+.videoWarp {
+    width: 95%;
+    height: 11rem;
+}
+
+.playerWnd {
+    margin-top: 2%;
+    width: 100%;
+    height: 96%;
+}
+
+.loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    font-size: .3rem;
+    z-index: 100000000;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1c;
+    text-align: center;
+}
+
+.loadbox {
+    position: absolute;
+    width: 160px;
+    height: 150px;
+    color: #324e93;
+    left: 50%;
+    top: 50%;
+    margin-top: -100px;
+    margin-left: -75px;
+}
+
+.loadbox img {
+    margin: 10px auto;
+    display: block;
+    width: 40px;
+}
+
+.content {
+    z-index: -33;
+}
+
+.play-window {
+    border: none !important;
+}
+
+.play-window div{
+    border: none !important;
+}
+
+.my-skin{
+    position: absolute;
+    top: 1.7rem;
+    font-size: .8rem;
+    height: 40px;
+    padding: 10px 20px;
+    color: #ddb926;
+    clear:both;
+}
+.myroll {
+    float: left;
+    /* line-height: .7rem !important; */
+    height: 40px;
+    font-size: 1.4rem;
+    background: #323c48;
+}
+.myroll .num{
+    margin: 0 3px;
+}
+.my-skin span{
+    float: left;
+    font-size: .7rem;
+    line-height: 40px;
+    color: #fff;
+}

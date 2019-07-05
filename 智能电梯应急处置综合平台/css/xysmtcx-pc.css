@@ -1,0 +1,193 @@
+/*针对大屏幕设备*/
+@media screen and (min-width: 992px){
+    html{
+        font-size: 10%;
+    }
+    body{
+        font-size: 0.21rem;
+    }
+    /*<!--头部标签栏-->*/
+    .dt-nav{
+        display: flex;
+        font-size: 0.4rem;
+        height: 0.8rem;
+        border-bottom: solid 0.013rem #545f8c;
+        line-height: 0.8rem;
+    }
+    .dt-nav .dt-nav-a{
+        padding: 0 2%;
+        font-size: 0.18rem;
+        cursor: pointer;
+    }
+    .dt-nav-title{
+        margin: 0 auto;
+        font-weight: bold;
+        letter-spacing: 0.08rem;
+        cursor: default;
+    }
+    .dt-nav .dt-nav-time{
+        padding: 0 2%;
+        font-size: 0.18rem;
+        cursor: default;
+    }
+    /*<!--头部标签栏 end-->*/
+
+    /*<!--下边内容栏-->*/
+    .dt-content{
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+    .dt-content>.content-box{
+        width: 100%;
+        height: 98%;
+    }
+    .dt-content>.content-box{
+        margin:1% 1% 0 1%;
+        height: 97%;
+    }
+    .dt-content>.content-box:first-child {
+        width: 20%;
+    }
+    .dt-content>.content-box:nth-child(2) {
+        width: 40%;
+    }
+    .dt-content>.content-box:last-child {
+        width: 30%;
+    }
+    .content-box>.box-info:first-child{
+        margin-bottom: 0.5rem;
+    }
+    .content-box>.box-info{
+        width: 100%;
+    }
+
+    .content-box-title{
+        width: 100%;
+        margin-bottom:0.3rem;
+        font-size: 0.25rem;
+    }
+    .dt-data{
+        width: 100%;
+    }
+    .dt-data>div{
+        width: 100%;
+    }
+    .dt-data>.dt-data-title{
+        margin: 0.2rem 0;
+        border-left: 0.05rem solid #589FCD;
+        padding-left: 0.2rem;
+        color: #589FCD;
+    }
+        /*<!--基础数据-->*/
+    .dt-data .dt-num{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .dt-data .dt-num>div {
+        width: 1.3rem;
+        min-width: 100px;
+        height: 0.75rem;
+        min-height: 60px;
+        display: flex;
+        border-radius:0.06rem;
+        color: white;
+        line-height: 0.75rem;
+        text-align: center;
+        margin: 0.1rem;
+    }
+    .dt-data .dt-num>div>div:first-child {
+        width: 16%;
+        height: 100%;
+        min-height: 60px;
+        line-height: normal;
+        writing-mode: vertical-rl;
+        font-size: 0.16rem;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 0 2%;
+        white-space: nowrap;
+    }
+    .dt-data .dt-num>div>div:last-child {
+        margin: 0 auto;
+        font-size: 0.3rem;
+        white-space: nowrap;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        /*<!--基础数据 end-->*/
+        /*<!--电梯信息-->*/
+    .content-box:first-child > .box-info:last-child{
+        height: 68%;
+    }
+    .content-box:first-child > .box-info:last-child > .dt-data{
+        height: calc(100% - 0.8rem);
+    }
+    #sygz{
+        height: 40%;
+    }
+    #sngz{
+        height: 40%;
+    }
+        /*<!--电梯信息 end-->*/
+        /*<!--电梯状态信息数量-->*/
+    .content-box:nth-child(2)>.box-info:first-child{
+        height: 45%;
+    }
+    .content-box:nth-child(2)>.box-info:first-child > .content-box-title{
+        display: flex;
+    }
+    .content-box:nth-child(2)>.box-info:first-child > .dt-data{
+        height: calc(100% - 1rem);
+        margin: -0.5rem 0;
+    }
+    #dtztxxsl{
+        width: 100%;
+        height: 140%;
+    }
+        /*<!--电梯状态信息数量 end-->*/
+        /*<!--视频监控-->*/
+    .content-box:nth-child(2)>.box-info:last-child{
+        height: 45%;
+
+    }
+    .content-box:nth-child(2)>.box-info:last-child > .dt-data{
+        height: calc(100% - 0.5rem);
+        background-color: #e0e8ef;
+    }
+        /*<!--视频监控 end-->*/
+        /*<!--故障信息1-->*/
+    .dt-data-cont{
+        display: flex;
+        justify-content: space-around;
+    }
+    .dt-data-cont .data-cont{
+        width: 24%;
+        background-color: rgba(0, 0, 0, 0.2);
+        height: 1.1rem;
+    }
+    .dt-data-cont .data-cont > .data-cont-title{
+        margin: 0.2rem 0 0 0;
+        font-size: 0.16rem;
+        border-left: 0.02rem solid #589FCD;
+        padding-left: 0.2rem;
+        color: #589FCD;
+        white-space: nowrap;
+    }
+    .dt-data-cont .data-cont > .data-cont-num{
+        padding-left: 0.2rem;
+        padding-top: 0.1rem;
+        font-size: 0.3rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+    }
+        /*<!--故障信息1 end-->*/
+    /*<!--故障信息2-->*/
+    #zjgz > .data-cont{
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    /*<!--故障信息2 end-->*/
+    /*<!--下边内容栏 end-->*/
+}

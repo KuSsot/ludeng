@@ -1,0 +1,24 @@
+/*针对手机显示的设置*/
+@media screen and (max-width: 767px){
+    body{
+        font-size: 3em;
+    }
+    /*<!--头部标签栏-->*/
+    .dt-nav{
+        display: flex;
+        font-size: 0.8em;
+        height: 45px;
+        line-height: 45px;
+    }
+    .dt-nav .dt-nav-a{
+        font-size: 0.5em;
+        padding: 0 5%;
+    }
+    .dt-nav .dt-nav-title{
+        margin: 0 auto;
+    }
+    .dt-nav .dt-nav-time{
+        display: none;
+    }
+    /*<!--头部标签栏 end-->*/
+}

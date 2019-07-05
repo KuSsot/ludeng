@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />-->
+    <meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <script type="application/javascript" src="./js/jquery-3.2.1.min.js"></script>
+    <!-- 滚动数字 -->
+    <script type="application/javascript" src="./js/numScroll.js"></script>
+    <!--控制自适应字体-->
+    <script type="application/javascript" src="./js/rem.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/getscript?v=3.0&ak=Rud5VWOYtjA8bZBRoZhNP6MdxVugyGrK"></script>
+<!--    <script type="text/javascript" src="./js/china.js"></script>-->
+    <!--ECharts通用-->
+    <script type="application/javascript" src="./echarts/echarts.js"></script>
+    <!--ECharts 配置js-->
+    <script type="application/javascript" src="./echarts/echartsOptions.js"></script>
+    <link rel="stylesheet" href="./css/xysmtcx.css">
+    <link rel="stylesheet" media="screen and (max-width: 767px)" href="./css/xysmtcx-phone.css">
+    <link rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 992px)" href="./css/xysmtcx-pad.css">
+    <link rel="stylesheet" media="screen and (min-width: 992px)" href="./css/xysmtcx-pc.css">
+    <!--地图用到js-->
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=Rud5VWOYtjA8bZBRoZhNP6MdxVugyGrK&__ec_v__=20190126"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+
+
+    <!--地图用到js end-->
+</head>
+<body>
+<div class="dt-body">
+    <!--头部标签栏-->
+    <div class="dt-nav">
+        <div class="dt-nav-a">进入菜单</div>
+        <div class="dt-nav-title">智能路灯系统</div>
+        <div class="dt-nav-time">2019- 07 - 03   17 : 00 : 00</div>
+    </div>
+
+    <!--头部标签栏 end-->
+    <!--下边内容栏-->
+    <div class="dt-content">
+        <div class="content-box"><!--分类1-->
+            <div class="box-info"><!--基础数据-->
+                <div class="content-box-title">》基础数据</div>
+                <div class="dt-data">
+                    <div class="dt-num">
+                        <div class="purple">
+                            <div>路灯总数</div>
+                            <div>999</div>
+                        </div>
+                        <div class="blue">
+                            <div>在线总数</div>
+                            <div>333</div>
+                        </div>
+                        <div class="green">
+                            <div>离线总数</div>
+                            <div>333</div>
+                        </div>
+                        <div class="red">
+                            <div>故障总数</div>
+                            <div>333</div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--基础数据 end-->
+            <div class="box-info"><!--电梯信息-->
+                <div class="content-box-title">》电梯信息</div>
+                <div class="dt-data">
+                    <div class="dt-data-title">与上月故障数量的曲线</div>
+                    <div id="sygz"></div>
+                    <div class="dt-data-title">与上年故障数量的曲线</div>
+                    <div id="sngz"></div>
+                </div>
+            </div><!--电梯信息 end-->
+        </div><!--分类1 end-->
+
+        <div class="content-box"><!--分类2-->
+            <div class="box-info"><!--电梯状态信息数量-->
+                <div class="content-box-title">
+                    》电梯状态信息数量:
+                    <div id="all"><!--scrollSum-->
+                        <span class="t_num t_num1"></span>
+                    </div><!--scrollSum end-->
+                </div>
+                <div class="dt-data">
+                    <div id="dtztxxsl"></div>
+                </div>
+            </div><!--电梯状态信息数量 end-->
+            <div class="box-info"><!--视频监控-->
+                <div class="content-box-title">》视频监控</div>
+                <div class="dt-data">
+                    <div id="spjk">
+
+                    </div>
+                </div>
+            </div><!--视频监控 end-->
+        </div><!--分类2 end-->
+
+        <div class="content-box"><!--分类3-->
+            <div class="box-info"><!--故障信息1-->
+                <div class="content-box-title">》故障信息</div>
+                <div class="dt-data">
+                    <div class="dt-data-title">故障总数</div>
+                    <div class="dt-data-cont" id="gzzs">
+                        <div class="data-cont">
+                            <div class="data-cont-title">故障总数</div>
+                            <div class="data-cont-num fblue">2161</div>
+                        </div>
+                        <div class="data-cont">
+                            <div class="data-cont-title">未解决故障</div>
+                            <div class="data-cont-num fyellow">695</div>
+                        </div>
+                        <div class="data-cont">
+                            <div class="data-cont-title">未解决严重故障</div>
+                            <div class="data-cont-num fred">96</div>
+                        </div>
+                        <div class="data-cont">
+                            <div class="data-cont-title">正在处理的故障</div>
+                            <div class="data-cont-num fgreen">3</div>
+                        </div>
+                    </div>
+                    <div class="dt-data-title">当天和本月的故障指数</div>
+                    <div id="dtbygzzs"></div>
+                </div>
+            </div><!--故障信息1 end-->
+            <div class="box-info"><!--故障信息2-->
+                <div class="content-box-title">》故障信息</div>
+                <div class="dt-data">
+                    <div class="dt-data-title">最近故障</div>
+                    <div class="dt-data-cont" id="zjgz">
+                        <div class="data-cont">
+                            <div class="data-cont-title">当天故障数</div>
+                            <div class="data-cont-num fblue">0</div>
+                        </div>
+                        <div class="data-cont">
+                            <div class="data-cont-title">当天严重故障数</div>
+                            <div class="data-cont-num fyellow">0</div>
+                        </div>
+                        <div class="data-cont">
+                            <div class="data-cont-title">本月故障数</div>
+                            <div class="data-cont-num fred">175</div>
+                        </div>
+                        <div class="data-cont">
+                            <div class="data-cont-title">本月严重故障数</div>
+                            <div class="data-cont-num fgreen">17</div>
+                        </div>
+                    </div>
+                    <div class="dt-data-title">故障区域分析</div>
+                    <div id="gzqyfx">
+
+                    </div>
+                </div>
+            </div><!--故障信息2 end-->
+        </div><!--分类3 end-->
+    </div>
+    <!--下边内容栏 end-->
+    <div>
+        <input id="scrollSum" type="hidden" value="">
+        <input type="hidden" value="">
+        <input type="hidden" value="">
+    </div>
+</div>
+<script>
+
+    let url='http://www.starryiot.com/service/RoadLampService/';
+    let token='c0ec4196791c4b1d97b997f7de6ed1da';
+    /*所有的ECharts用的*/
+    let getsygz = echarts.init(document.getElementById('sygz'));
+    let getsngz = echarts.init(document.getElementById('sngz'));
+    let getdtztxxsl = echarts.init(document.getElementById('dtztxxsl'));
+    getsygz.setOption(sygz(['上月故障','本月故障']));
+    getsngz.setOption(sygz(['上年故障','今年故障']));
+    if (dtztxxsl() && typeof dtztxxsl() === "object") {
+        getdtztxxsl.setOption(dtztxxsl(),true);
+    }
+
+    $(document).ready(function(){//dom结构加载完执行的方法
+        getsygz.resize();
+        getsngz.resize();
+        getdtztxxsl.resize();
+    });
+    $(window).resize(function() {
+        getsygz.resize();
+        getsngz.resize();
+        getdtztxxsl.resize();
+    });
+    /*所有的ECharts用的 end*/
+
+    $.ajax({
+        url:url+'lamp/status/initialize',
+        type:'post',
+        dataType:'json',
+        data:{
+            token:token,
+        }
+    }).done(function (data) {
+        console.log(data);
+        $.ajax({
+            url:url+'lamp/status/countStatus',
+            type:'post',
+            dataType:'json',
+            data:{
+                token:token,
+            }
+        }).done(function (info) {
+            console.log(info.data);
+            $('#scrollSum').val(parseInt(info.data));
+        })
+    });
+
+    /*滚动数字用的*/
+    let scrollSum = 0;
+    let init = true;
+    $(function() {
+        setInterval(function(){
+                //从数据库传过来用就可以了
+             if (scrollSum > 0) {
+                 show_num1(scrollSum);
+             }else {
+                 scrollSum = $('#scrollSum').val();
+             }
+        },1000);
+    });
+
+    function show_num1(n) {
+        scrollSum=n*1+1;//控制每次增加的数量
+        let it = $(".t_num1 i");//获取dom对象
+        let len = String(n).length;
+        let tenLen=0;
+        if(len<10){
+            tenLen = 10-len;
+        }
+        for(let i = 0; i < 10; i++) {
+            if (init){
+                $(".t_num1").append("<i></i>");
+            }
+            let num = String(n).charAt(len-i);
+            if(i<tenLen){//判断是否小于相差的位数
+                num = 0;
+            }else{
+                num = String(n).charAt(i-tenLen);//获取num的倒数的位置
+            }
+            //根据数字图片的高度设置相应的值
+            let y = parseInt(num) * 11.1;//滚动位置的比例11.1% 22.2%
+            let obj = $(".t_num1 i").eq(i);
+            obj.animate({
+                backgroundPosition: '(0 ' + String(y) + '%)'
+            }, 'slow', 'swing', function() {});
+        }
+        init = false;//关闭开关
+        // $("#cur_num").val(n);
+    }
+    /*滚动数字用的 end*/
+
+    /*地图*/
+    getdtztxxsl.showLoading();
+    let mapFeatures = echarts.getMap('china').geoJson.features;
+    getdtztxxsl.hideLoading();
+    mapFeatures.forEach(function(v) {
+        // 地区名称
+        let name = v.properties.name;
+        // 地区经纬度
+        geoCoordMap[name] = v.properties.cp;
+
+    });
+    /*地图 end*/
+
+    
+</script>
+</body>
+</html>

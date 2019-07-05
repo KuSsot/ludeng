@@ -1,0 +1,31 @@
+/*针对平板电脑的分辨率*/
+@media screen and (min-width: 768px) and (max-width: 992px){
+    body{
+        font-size: 2.5em;/* 16px ÷ 16 = 1rem*/
+    }
+    .dt-nav{
+        display: flex;
+        font-size: 28px;
+        height: 60px;
+        border-bottom: solid 1px #545f8c;
+        line-height: 60px;
+    }
+    /*<!--头部标签栏-->*/
+    .dt-nav .dt-nav-a{
+        padding: 0 5%;
+        font-size: 0.5em;
+        cursor: pointer;
+    }
+    .dt-nav-title{
+        margin: 0 auto;
+        font-weight: bold;
+        letter-spacing: 0.2em;
+        cursor: default;
+    }
+    .dt-nav .dt-nav-time{
+        padding: 0 5%;
+        font-size: 0.5em;
+        cursor: default;
+    }
+    /*<!--头部标签栏 end-->*/
+}
