@@ -119,16 +119,16 @@
         /*<!--基础数据 end-->*/
         /*<!--电梯信息-->*/
     .content-box:first-child > .box-info:last-child{
-        height: 68%;
+        height: 66%;
     }
     .content-box:first-child > .box-info:last-child > .dt-data{
         height: calc(100% - 0.8rem);
     }
     #sygz{
-        height: 40%;
+        height: 38%;
     }
     #sngz{
-        height: 40%;
+        height: 38%;
     }
         /*<!--电梯信息 end-->*/
         /*<!--电梯状态信息数量-->*/
@@ -158,6 +158,37 @@
     }
         /*<!--视频监控 end-->*/
         /*<!--故障信息1-->*/
+    .content-box:last-child > .box-info{
+        height: calc(49% - 0.5rem);
+    }
+    .content-box:last-child > .box-info > .dt-data{
+        height:100%;
+    }
+    .dt-data > #dtbygzzs{
+        display: flex;
+        justify-content: space-around;
+        height: 42%;
+    }
+    #dtbygzzs > div{
+        width: 48%;
+        height: 100%;
+        display: flex;
+    }
+    #dtbygzzs > div > .dtbygzzs-title{
+        margin-top: 0.1rem;
+        margin-left:0.3rem;
+        width: 10%;
+        writing-mode: vertical-rl;
+        font-size: 0.157rem;
+        white-space: nowrap;
+        letter-spacing: 0.05rem;
+    }
+    #dtbygzzs > div > .dtbygzzs-data{
+        margin-top: -0.15rem;
+        width: 90%;
+        height: 100%;
+    }
+
     .dt-data-cont{
         display: flex;
         justify-content: space-around;
@@ -183,11 +214,17 @@
         display: flex;
         align-items: center;
     }
+            /*<!--当天和本月的故障指数-->*/
+
+            /*<!--当天和本月的故障指数 end-->*/
         /*<!--故障信息1 end-->*/
-    /*<!--故障信息2-->*/
+    .dt-data #gzqyfx {
+        height: 44%;
+    }
+        /*<!--故障信息2-->*/
     #zjgz > .data-cont{
         background-color: rgba(255, 255, 255, 0.1);
     }
-    /*<!--故障信息2 end-->*/
+        /*<!--故障信息2 end-->*/
     /*<!--下边内容栏 end-->*/
 }

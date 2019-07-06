@@ -108,7 +108,7 @@
                 <div class="content-box-title">》故障信息</div>
                 <div class="dt-data">
                     <div class="dt-data-title">故障总数</div>
-                    <div class="dt-data-cont" id="gzzs">
+                    <div class="dt-data-cont" id="gzzs"><!--故障总数-->
                         <div class="data-cont">
                             <div class="data-cont-title">故障总数</div>
                             <div class="data-cont-num fblue">2161</div>
@@ -125,9 +125,22 @@
                             <div class="data-cont-title">正在处理的故障</div>
                             <div class="data-cont-num fgreen">3</div>
                         </div>
-                    </div>
+                    </div><!--故障总数 end-->
                     <div class="dt-data-title">当天和本月的故障指数</div>
-                    <div id="dtbygzzs"></div>
+                    <div id="dtbygzzs"><!--当天和本月的故障指数-->
+                        <div>
+                            <div class="dtbygzzs-title">当天故障指数</div>
+                            <div class="dtbygzzs-data" id="dtgzzs">
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="dtbygzzs-title">本月故障指数</div>
+                            <div class="dtbygzzs-data" id="nygzzs">
+
+                            </div>
+                        </div>
+                    </div><!--当天和本月的故障指数 end-->
                 </div>
             </div><!--故障信息1 end-->
             <div class="box-info"><!--故障信息2-->
@@ -175,6 +188,10 @@
     let getsygz = echarts.init(document.getElementById('sygz'));
     let getsngz = echarts.init(document.getElementById('sngz'));
     let getdtztxxsl = echarts.init(document.getElementById('dtztxxsl'));
+    let getdtgzzs = echarts.init(document.getElementById('dtgzzs'));
+    let getnygzzs = echarts.init(document.getElementById('nygzzs'));
+    let getgzqyfx = echarts.init(document.getElementById('gzqyfx'));
+
     getsygz.setOption(sygz(['上月故障','本月故障']));
     getsngz.setOption(sygz(['上年故障','今年故障']));
     if (dtztxxsl() && typeof dtztxxsl() === "object") {
@@ -182,14 +199,24 @@
     }
 
     $(document).ready(function(){//dom结构加载完执行的方法
+        let rem = parseFloat($("html").css("font-size").replace("px"));
+        getdtgzzs.setOption(dtbygzzs(1,rem));
+        getnygzzs.setOption(dtbygzzs(2,rem));
+        getgzqyfx.setOption(gzqyfx(rem));
         getsygz.resize();
         getsngz.resize();
         getdtztxxsl.resize();
+        getdtgzzs.resize();
+        getnygzzs.resize();
+        getgzqyfx.resize();
     });
     $(window).resize(function() {
         getsygz.resize();
         getsngz.resize();
         getdtztxxsl.resize();
+        getdtgzzs.resize();
+        getnygzzs.resize();
+        getgzqyfx.resize();
     });
     /*所有的ECharts用的 end*/
 
@@ -221,7 +248,7 @@
     $(function() {
         setInterval(function(){
                 //从数据库传过来用就可以了
-             if (scrollSum > 0) {
+             if (scrollSum > 0 ) {
                  show_num1(scrollSum);
              }else {
                  scrollSum = $('#scrollSum').val();
@@ -268,11 +295,9 @@
         let name = v.properties.name;
         // 地区经纬度
         geoCoordMap[name] = v.properties.cp;
-
     });
     /*地图 end*/
 
-    
 </script>
 </body>
 </html>

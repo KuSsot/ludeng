@@ -3,23 +3,29 @@ function sygz(str) {
 		// title: {
 		// 	text: ''
 		// },
-		// tooltip: {
-		// 	trigger: 'axis'
-		// },
+		tooltip: {
+			trigger: 'axis',
+			textStyle: {
+				color: '#fff',
+			}
+		},
 		legend: {
-			data:str
+			data:str,
+			textStyle: {
+				color: '#fff',
+			}
 		},
 		grid: {
 			left: '3%',
-			right: '4%',
-			bottom: '3%',
+			right: '3%',
+			bottom: '1%',
 			containLabel: true
 		},
-		toolbox: {
+		/*toolbox: {
 			feature: {
 				saveAsImage: {}
 			}
-		},
+		},*/
 		xAxis: {
 			type: 'category',
 			boundaryGap: false,
@@ -314,6 +320,262 @@ function dtztxxsl(){
 				zlevel: 1
 			},
 
+		]
+	};
+	return option;
+}
+
+/* 当天和本月的故障指数 饼形图*/
+function dtbygzzs(typeNum,rem){
+	let color= ['#fb734e', '#e32f46','#94d96c', '#0bbcb7','#1a9bfc','#7049f0'];
+	let Line1Arr = [0.60 * rem , 0.68 * rem];	/*76.8*/
+	let Line2Arr = [0.45 * rem , 0.53 * rem];
+	let Line3Arr = [0.30 * rem , 0.38 * rem];
+	let fontSize = 0.4 * rem;
+	let typeArr=[];
+
+	switch (typeNum) {
+		//1：优  2：中  3：差
+		case 1:
+			typeArr=[['优','#0bbcb7'],[1,0],[1,99],[1,99]];
+			break;
+		case 2:
+			typeArr=[['良','#94d96c'],[1,99],[1,0],[1,99]];
+			break;
+		case 3:
+			typeArr=[['差','#fb734e'],[1,99],[1,99],[1,0]];
+			break;
+	}
+
+	let dataStyle = {
+		normal: {
+			label: {
+				show: false
+			},
+			labelLine: {
+				show: false
+			},
+			shadowBlur: 50,
+			borderWidth: 30,
+			shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
+		}
+	};
+	let placeHolderStyle = {
+		normal: {
+			color: '#393d50',
+			label: {
+				show: false
+			},
+			labelLine: {
+				show: false
+			}
+		},
+		emphasis: {
+			color: '#393d50'
+		}
+	};
+	let option = {
+		// backgroundColor: '#142058',
+		title: {
+			text: typeArr[0][0],
+			x: 'center',
+			y: 'center',
+			textStyle: {
+				fontWeight: 'normal',
+				fontSize: fontSize,
+				color: typeArr[0][1],
+			}
+		},
+		tooltip: {
+			trigger: 'item',
+			show: false,
+			formatter: "{b} : <br/>{d}%",
+			backgroundColor: 'rgba(0,0,0,0.7)', // 背景
+			padding: [3, 4], //内边距
+			extraCssText: 'box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);', //添加阴影
+		},
+		legend: {
+			orient: 'vertical',
+			// icon: 'circle',
+			show: false ,
+			right: 'right',
+			top: '5',
+			itemGap:5,
+			data: ['优', '良', '差', '04', '05', '06'],
+			textStyle: {
+				color: '#fft'
+			}
+		},
+		series: [{
+			name: 'Line 1',
+			type: 'pie',
+			clockWise: false,
+			radius: Line1Arr,
+			center:['50%','50%'],
+			itemStyle: dataStyle,
+			hoverAnimation: false,
+			startAngle: 90,
+			label:{
+				borderRadius:'10',
+			},
+			data: [{
+				value: typeArr[3][0],
+				name: '差',
+				itemStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color:color[0]
+						}, {
+							offset: 1,
+							color: color[1]
+						}])
+					}
+				}
+			},
+				{
+					value: typeArr[3][1],
+					name: '',
+					tooltip: {
+						show: false
+					},
+					itemStyle: placeHolderStyle
+				},
+			]
+		},
+			{
+				name: 'Line 2',
+				type: 'pie',
+				clockWise: false,
+				radius: Line2Arr,
+				center:['50%','50%'],
+				itemStyle: dataStyle,
+				hoverAnimation: false,
+				startAngle: 90,
+				data: [{
+					value: typeArr[2][0],
+					name: '良',
+					itemStyle: {
+						normal: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: color[2]
+							}, {
+								offset: 1,
+								color: color[3]
+							}])
+						}
+					}
+				},
+					{
+						value: typeArr[2][1],
+						name: '',
+						tooltip: {
+							show: false
+						},
+						itemStyle: placeHolderStyle
+					},
+				]
+			},
+			{
+				name: 'Line 3',
+				type: 'pie',
+				clockWise: false,
+				radius: Line3Arr,
+				center:['50%','50%'],
+				itemStyle: dataStyle,
+				hoverAnimation: false,
+				startAngle: 90,
+				data: [{
+					value: typeArr[1][0],
+					name: '优',
+					itemStyle: {
+						normal: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: color[4]
+							}, {
+								offset: 1,
+								color: color[5]
+							}]),
+						}
+					}
+				},
+					{
+						value: typeArr[1][1],
+						name: '',
+						tooltip: {
+							show: false
+						},
+						itemStyle: placeHolderStyle
+					},
+				]
+			}
+		]
+	};
+	return option;
+}
+/* 故障区域分析 饼形图*/
+function gzqyfx(rem) {
+	// app.title = '环形图';
+
+	let option = {
+		tooltip: {
+			trigger: 'item',
+			formatter: "{a} <br/>{b}: {c} ({d}%)",
+
+		},
+		legend: {
+			orient: 'vertical',
+			x: 'right',
+			right: 'right',
+			data:['安全保护装置','人为原因','外部原因','门系统','曳引系统','导向系统','轿厢','控制系统','电气系统'],
+			textStyle: {
+				color: '#fff',
+				fontSize:0.15*rem,
+			}
+		},
+		series: [
+			{
+				name:'访问来源',
+				type:'pie',
+				center: ['30%', '50%'],
+				radius: ['50%', '70%'],
+				avoidLabelOverlap: false,
+				textStyle: {
+					color: '#fff',
+					fontSize:0.15*rem,
+				},
+				label: {
+					normal: {
+						show: false,
+						position: 'center'
+					},
+					emphasis: {
+						show: true,
+						textStyle: {
+							fontSize: '30',
+							fontWeight: 'bold'
+						}
+					}
+				},
+				labelLine: {
+					normal: {
+						show: false
+					}
+				},
+				data:[
+					{value:335, name:'安全保护装置'},
+					{value:310, name:'人为原因'},
+					{value:234, name:'外部原因'},
+					{value:135, name:'门系统'},
+					{value:1548, name:'曳引系统'},
+					{value:154, name:'导向系统'},
+					{value:548, name:'轿厢'},
+					{value:632, name:'控制系统'},
+					{value:1000, name:'电气系统'},
+				]
+			}
 		]
 	};
 	return option;
