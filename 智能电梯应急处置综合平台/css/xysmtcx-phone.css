@@ -73,11 +73,9 @@
     }
         /*<!--基础数据 end-->*/
         /*<!--路灯信息-->*/
-    .dt-data > #sygz{
-
-    }
-    .dt-data > #sngz{
-
+    .content-box:first-child > .box-info:last-child > .dt-data{
+        width: 100%;
+        height: 5rem;
     }
         /*<!--路灯信息 end-->*/
     /*<!--下边内容栏 end-->*/
