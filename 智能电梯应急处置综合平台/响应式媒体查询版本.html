@@ -47,6 +47,7 @@
     <!--下边内容栏-->
     <div class="dt-content">
         <div class="content-box"><!--分类1-->
+
             <div class="box-info"><!--基础数据-->
                 <div class="content-box-title">》基础数据</div>
                 <div class="dt-data">
@@ -70,21 +71,22 @@
                     </div>
                 </div>
             </div><!--基础数据 end-->
-            <div class="box-info"><!--电梯信息-->
-                <div class="content-box-title">》电梯信息</div>
+
+            <div class="box-info"><!--路灯信息-->
+                <div class="content-box-title">》路灯信息</div>
                 <div class="dt-data">
                     <div class="dt-data-title">与上月故障数量的曲线</div>
                     <div id="sygz"></div>
                     <div class="dt-data-title">与上年故障数量的曲线</div>
                     <div id="sngz"></div>
                 </div>
-            </div><!--电梯信息 end-->
+            </div><!--路灯信息 end-->
         </div><!--分类1 end-->
 
         <div class="content-box"><!--分类2-->
-            <div class="box-info"><!--电梯状态信息数量-->
+            <div class="box-info"><!--路灯状态信息数量-->
                 <div class="content-box-title">
-                    》电梯状态信息数量:
+                    》路灯状态信息数量:
                     <div id="all"><!--scrollSum-->
                         <span class="t_num t_num1"></span>
                     </div><!--scrollSum end-->
@@ -92,7 +94,7 @@
                 <div class="dt-data">
                     <div id="dtztxxsl"></div>
                 </div>
-            </div><!--电梯状态信息数量 end-->
+            </div><!--路灯状态信息数量 end-->
             <div class="box-info"><!--视频监控-->
                 <div class="content-box-title">》视频监控</div>
                 <div class="dt-data">
@@ -211,6 +213,10 @@
         getgzqyfx.resize();
     });
     $(window).resize(function() {
+        let rem = parseFloat($("html").css("font-size").replace("px"));
+        getdtgzzs.setOption(dtbygzzs(1,rem));
+        getnygzzs.setOption(dtbygzzs(2,rem));
+        getgzqyfx.setOption(gzqyfx(rem));
         getsygz.resize();
         getsngz.resize();
         getdtztxxsl.resize();

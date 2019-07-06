@@ -1,24 +1,84 @@
 /*针对手机显示的设置*/
 @media screen and (max-width: 767px){
     body{
-        font-size: 3em;
+        font-size: 0.8rem;
     }
     /*<!--头部标签栏-->*/
     .dt-nav{
         display: flex;
-        font-size: 0.8em;
-        height: 45px;
-        line-height: 45px;
+        height: 2rem;
+        line-height: 2rem;
     }
     .dt-nav .dt-nav-a{
-        font-size: 0.5em;
         padding: 0 5%;
     }
     .dt-nav .dt-nav-title{
+        font-size: 1rem;
+        letter-spacing: 0.1rem;
         margin: 0 auto;
+        font-weight: bold;
     }
     .dt-nav .dt-nav-time{
         display: none;
     }
     /*<!--头部标签栏 end-->*/
+
+    /*<!--下边内容栏-->*/
+    .dt-content{
+        width: 100%;
+    }
+    .dt-content > .content-box{
+        width: 100%;
+    }
+    .content-box>.box-info{
+        margin-bottom: 0.5rem;
+    }
+    .content-box>.box-info>.content-box-title{
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+        /*<!--基础数据-->*/
+    .dt-num{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .dt-num > div{
+        width: 34%;
+        height: 4rem;
+        line-height: 4rem;
+        border-radius: 0.5rem;
+        margin: 0.4rem 0;
+        display: flex;
+        text-align: center;
+    }
+    .dt-num > div > div:first-child{
+        width: 15%;
+        writing-mode: vertical-rl;
+        border-radius: 0.5rem 0 0 0.5rem;
+        line-height: normal;
+        height: 100%;
+        padding: 0 2%;
+        white-space: nowrap;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    .dt-num>div>div:last-child {
+        margin: 0 auto;
+        font-size: 1.4rem;
+        /*font-weight: bold;*/
+        white-space: nowrap;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        /*<!--基础数据 end-->*/
+        /*<!--路灯信息-->*/
+    .dt-data > #sygz{
+
+    }
+    .dt-data > #sngz{
+
+    }
+        /*<!--路灯信息 end-->*/
+    /*<!--下边内容栏 end-->*/
 }
