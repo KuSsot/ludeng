@@ -1,4 +1,18 @@
-function sygz(str) {
+function sygz(str,dateType) {
+	let typeArr=[];
+	switch (dateType) {
+		//1：月  2：年  3：日
+		case 1:
+			typeArr=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+			break;
+		case 2:
+			typeArr=['周一','周二','周三','周四','周五','周六','周日'];
+			break;
+		case 3:
+			typeArr=['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00','12:00'];
+			break;
+	}
+
 	let option = {
 		// title: {
 		// 	text: ''
@@ -29,23 +43,41 @@ function sygz(str) {
 		xAxis: {
 			type: 'category',
 			boundaryGap: false,
-			data: ['周一','周二','周三','周四','周五','周六','周日']
+			data: typeArr,
+			axisLabel: {
+				show: true,
+				textStyle: {
+					color: '#ffffff'
+				}
+			}
 		},
 		yAxis: {
-			type: 'value'
+			type: 'value',
+			axisLabel: {
+				show: true,
+				textStyle: {
+					color: '#ffffff'
+				}
+			}
 		},
 		series: [
 			{
 				name:str[0],
 				type:'line',
 				stack: '总量',
-				data:[120, 132, 101, 134, 90, 230, 210]
+				data:[120, 132, 101, 134, 90, 230, 210],
+				textStyle: {
+					color: '#fff',
+				}
 			},
 			{
 				name:str[1],
 				type:'line',
 				stack: '总量',
-				data:[220, 182, 191, 234, 290, 330, 310]
+				data:[220, 182, 191, 234, 290, 330, 310],
+				textStyle: {
+					color: '#fff',
+				}
 			},
 		]
 	};
@@ -328,6 +360,12 @@ function dtztxxsl(){
 /* 当天和本月的故障指数 饼形图*/
 function dtbygzzs(typeNum,rem){
 	let color= ['#fb734e', '#e32f46','#94d96c', '#0bbcb7','#1a9bfc','#7049f0'];
+	if(rem <= 32){
+		rem = 100;
+	}else if(rem>32 && rem <=42){
+		rem = 200;
+	}
+	console.log(rem);
 	let Line1Arr = [0.60 * rem , 0.68 * rem];	/*76.8*/
 	let Line2Arr = [0.45 * rem , 0.53 * rem];
 	let Line3Arr = [0.30 * rem , 0.38 * rem];
@@ -518,7 +556,13 @@ function dtbygzzs(typeNum,rem){
 /* 故障区域分析 饼形图*/
 function gzqyfx(rem) {
 	// app.title = '环形图';
-
+	let centerArr=['30%', '50%'];
+	if(rem <= 32){
+		rem = 50;
+		centerArr=['20%', '50%'];
+	}else if(rem>32 && rem <=42){
+		rem = 100;
+	}
 	let option = {
 		tooltip: {
 			trigger: 'item',
@@ -539,7 +583,7 @@ function gzqyfx(rem) {
 			{
 				name:'访问来源',
 				type:'pie',
-				center: ['30%', '50%'],
+				center: centerArr,
 				radius: ['50%', '70%'],
 				avoidLabelOverlap: false,
 				textStyle: {

@@ -142,6 +142,21 @@
         width: 100%;
         height: 140%;
     }
+            /*滚动数字的样式*/
+    #all{
+        width: auto;
+        margin: 0 0.2rem;
+        display: inline-block;
+    }
+    #all .t_num i {
+        width: 0.31rem;
+        height: 0.45rem;
+        display: inline-block;
+        background: url(../img/number1.png) no-repeat;
+        background-size: 100% auto ;
+        background-position: 0 0;
+    }
+            /*滚动数字的样式 end */
         /*<!--路灯状态信息数量 end-->*/
         /*<!--视频监控-->*/
     .content-box:nth-child(2)>.box-info:last-child{
@@ -195,13 +210,13 @@
         height: 1.1rem;
     }
     .dt-data-cont .data-cont > .data-cont-title{
-        margin: 0.2rem 0 0 0;
-        font-size: 0.16rem;
-        border-left: 0.02rem solid #589FCD;
-        padding-left: 0.2rem;
-        color: #589FCD;
-        white-space: nowrap;
-    }
+         margin: 0.2rem 0 0 0;
+         font-size: 0.16rem;
+         border-left: 0.02rem solid #589FCD;
+         padding-left: 0.2rem;
+         color: #589FCD;
+         white-space: nowrap;
+     }
     .dt-data-cont .data-cont > .data-cont-num{
         padding-left: 0.2rem;
         padding-top: 0.1rem;

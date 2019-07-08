@@ -77,21 +77,7 @@ body {
     /*字的颜色 end*/
 /*<!--下边内容栏 end-->*/
 
-/*滚动数字的样式*/
-#all{
-    width: auto;
-    margin: 0 0.2rem;
-    display: inline-block;
-}
-#all .t_num i {
-    width: 0.31rem;
-    height: 0.45rem;
-    display: inline-block;
-    background: url(../img/number1.png) no-repeat;
-    background-size: 100% auto ;
-    background-position: 0 0;
-}
-/*滚动数字的样式 end */
+
 
 /*去掉百度地图的文字LOGO*/
 .BMap_cpyCtrl {

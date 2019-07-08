@@ -185,7 +185,7 @@
 <script>
 
     let url='http://www.starryiot.com/service/RoadLampService/';
-    let token='c0ec4196791c4b1d97b997f7de6ed1da';
+    let token='82cdac1ff04546739736a9d69cd61f7e';
     /*所有的ECharts用的*/
     let getsygz = echarts.init(document.getElementById('sygz'));
     let getsngz = echarts.init(document.getElementById('sngz'));
@@ -194,8 +194,8 @@
     let getnygzzs = echarts.init(document.getElementById('nygzzs'));
     let getgzqyfx = echarts.init(document.getElementById('gzqyfx'));
 
-    getsygz.setOption(sygz(['上月故障','本月故障']));
-    getsngz.setOption(sygz(['上年故障','今年故障']));
+    getsygz.setOption(sygz(['上月故障','本月故障'],1));
+    getsngz.setOption(sygz(['上年故障','今年故障'],2));
     if (dtztxxsl() && typeof dtztxxsl() === "object") {
         getdtztxxsl.setOption(dtztxxsl(),true);
     }
