@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>particles.js</title>
+    <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+    <meta name="author" content="Vincent Garreau"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" media="screen" href="css/login.css">
+    <script type="application/javascript" src="./js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<!-- particles.js container -->
+<div id="particles-js" style="display: flex;align-items: center;justify-content: center">
+</div>
+<div class="login-page">
+    <div class="login-content">
+        <div class="logo"><img src="http://www.starryiot.com:8088/lamp/static/images/logo.png"></div>
+        <div class="login-tit">智能路灯监控管理系统</div>
+        <div class="login-input">
+            <input name="username" type="text" placeholder="用户名/手机号">
+        </div>
+        <div class="login-input">
+            <input name="password" type="password" placeholder="密码">
+        </div>
+        <div class="login-input">
+            <input name="code" type="text" placeholder="验证码">
+            <div name="code" onclick="resetCode()" value="bMes" class="identCode">bMes</div>
+        </div>
+        <div class="login-btn">
+            <div class="login-btn-left">
+                <span>登录</span>
+            </div>
+<!--            <div class="login-btn-right" onClick="changeImg()">-->
+<!--                <img src="img/check.png" alt="" id="picture"> 记住密码-->
+<!--            </div>-->
+        </div>
+    </div>
+</div>
+
+
+<!-- scripts -->
+<script src="js/particles.js"></script>
+<script src="js/app.js"></script>
+<script>
+    /*记住密码*/
+    /*function changeImg() {
+        let pic = document.getElementById('picture');
+        console.log(pic.src)
+        if (pic.getAttribute("src", 2) == "img/check.png") {
+            pic.src = "img/checked.png"
+        } else {
+            pic.src = "img/check.png"
+        }
+    }*/
+
+    let nums =
+        ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    function resetCode() {
+        let code='';
+        for (let i = 0; i < 4; i++) {
+            code += nums[Math.floor(Math.random() * nums.length)]
+        }
+        console.log(code);
+        $('div[name=code]').val(code).text(code);
+
+    }
+</script>
+</body>
+</html>

@@ -37,7 +37,7 @@
 <div class="dt-body">
     <!--头部标签栏-->
     <div class="dt-nav">
-        <div class="dt-nav-a">进入菜单</div>
+        <div class="dt-nav-a" onclick="window.location.href='http://www.starryiot.com:8088/lamp/#/projects'">进入菜单</div>
         <div class="dt-nav-title">智能路灯系统</div>
         <div class="dt-nav-time">2019- 07 - 03   17 : 00 : 00</div>
     </div>
@@ -190,6 +190,11 @@
     </div>
 </div>
 <script>
+    window.sessionStorage.setItem('lamp_userId', data.userId);
+    window.sessionStorage.setItem('lamp_token', data.token);
+    window.sessionStorage.setItem('lamp_username', data.email);
+    window.sessionStorage.setItem('lamp_password', md5_default()(this.passWord));
+
     /*所有的ECharts用的*/
     let getsygz = echarts.init(document.getElementById('sygz'));
     let getsngz = echarts.init(document.getElementById('sngz'));
