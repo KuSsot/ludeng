@@ -6,11 +6,12 @@
     <meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Title</title>
     <script type="application/javascript" src="./js/jquery-3.2.1.min.js"></script>
+    <script type="application/javascript" src="./js/ajaxInfo.js"></script>
     <!-- 滚动数字 -->
     <script type="application/javascript" src="./js/numScroll.js"></script>
     <!--控制自适应字体-->
     <script type="application/javascript" src="./js/rem.js"></script>
-    <script type="text/javascript" src="https://api.map.baidu.com/getscript?v=3.0&ak=Rud5VWOYtjA8bZBRoZhNP6MdxVugyGrK"></script>
+<!--    <script type="text/javascript" src="https://api.map.baidu.com/getscript?v=3.0&ak=Rud5VWOYtjA8bZBRoZhNP6MdxVugyGrK"></script>-->
 <!--    <script type="text/javascript" src="./js/china.js"></script>-->
     <!--ECharts通用-->
     <script type="application/javascript" src="./echarts/echarts.js"></script>
@@ -20,7 +21,7 @@
     <link rel="stylesheet" media="screen and (max-width: 767px)" href="./css/xysmtcx-phone.css">
     <link rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 992px)" href="./css/xysmtcx-pad.css">
     <link rel="stylesheet" media="screen and (min-width: 992px)" href="./css/xysmtcx-pc.css">
-    <!--地图用到js-->
+    <!--ECharts用到js-->
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
@@ -30,9 +31,7 @@
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=Rud5VWOYtjA8bZBRoZhNP6MdxVugyGrK&__ec_v__=20190126"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
-
-
-    <!--地图用到js end-->
+    <!--ECharts用到js end-->
 </head>
 <body>
 <div class="dt-body">
@@ -53,20 +52,28 @@
                 <div class="dt-data">
                     <div class="dt-num">
                         <div class="purple">
-                            <div>路灯总数</div>
-                            <div>999</div>
+                            <div>项目数量</div>
+                            <div id="xmNum"></div>
                         </div>
                         <div class="blue">
-                            <div>在线总数</div>
-                            <div>333</div>
+                            <div>路灯数量</div>
+                            <div id="ldNum"></div>
                         </div>
                         <div class="green">
-                            <div>离线总数</div>
-                            <div>333</div>
+                            <div>当前节能</div>
+                            <div id="jnNum"></div>
                         </div>
                         <div class="red">
-                            <div>故障总数</div>
-                            <div>333</div>
+                            <div>异常项目数</div>
+                            <div id="ycxmNum"></div>
+                        </div>
+                        <div class="pink">
+                            <div>异常路灯数</div>
+                            <div id="ycldNum"></div>
+                        </div>
+                        <div class="yellow">
+                            <div>当前总能耗</div>
+                            <div id="hnNum"></div>
                         </div>
                     </div>
                 </div>
@@ -113,19 +120,19 @@
                     <div class="dt-data-cont" id="gzzs"><!--故障总数-->
                         <div class="data-cont">
                             <div class="data-cont-title">故障总数</div>
-                            <div class="data-cont-num fblue">2161</div>
+                            <div id="sumTotal" class="data-cont-num fblue"></div>
                         </div>
                         <div class="data-cont">
                             <div class="data-cont-title">未解决故障</div>
-                            <div class="data-cont-num fyellow">695</div>
+                            <div id="unsolved" class="data-cont-num fyellow"></div>
                         </div>
                         <div class="data-cont">
                             <div class="data-cont-title">未解决严重故障</div>
-                            <div class="data-cont-num fred">96</div>
+                            <div id="unsolvedCritical" class="data-cont-num fred"></div>
                         </div>
                         <div class="data-cont">
                             <div class="data-cont-title">正在处理的故障</div>
-                            <div class="data-cont-num fgreen">3</div>
+                            <div id="inProcess" class="data-cont-num fgreen"></div>
                         </div>
                     </div><!--故障总数 end-->
                     <div class="dt-data-title">当天和本月的故障指数</div>
@@ -152,19 +159,19 @@
                     <div class="dt-data-cont" id="zjgz">
                         <div class="data-cont">
                             <div class="data-cont-title">当天故障数</div>
-                            <div class="data-cont-num fblue">0</div>
+                            <div id="dtNumTotal" class="data-cont-num fblue"></div>
                         </div>
                         <div class="data-cont">
                             <div class="data-cont-title">当天严重故障数</div>
-                            <div class="data-cont-num fyellow">0</div>
+                            <div id="dtYZNum" class="data-cont-num fyellow"></div>
                         </div>
                         <div class="data-cont">
                             <div class="data-cont-title">本月故障数</div>
-                            <div class="data-cont-num fred">175</div>
+                            <div id="byNumTotal" class="data-cont-num fred"></div>
                         </div>
                         <div class="data-cont">
                             <div class="data-cont-title">本月严重故障数</div>
-                            <div class="data-cont-num fgreen">17</div>
+                            <div id="byYZNum" class="data-cont-num fgreen"></div>
                         </div>
                     </div>
                     <div class="dt-data-title">故障区域分析</div>
@@ -183,9 +190,6 @@
     </div>
 </div>
 <script>
-
-    let url='http://www.starryiot.com/service/RoadLampService/';
-    let token='82cdac1ff04546739736a9d69cd61f7e';
     /*所有的ECharts用的*/
     let getsygz = echarts.init(document.getElementById('sygz'));
     let getsngz = echarts.init(document.getElementById('sngz'));
@@ -202,8 +206,6 @@
 
     $(document).ready(function(){//dom结构加载完执行的方法
         let rem = parseFloat($("html").css("font-size").replace("px"));
-        getdtgzzs.setOption(dtbygzzs(1,rem));
-        getnygzzs.setOption(dtbygzzs(2,rem));
         getgzqyfx.setOption(gzqyfx(rem));
         getsygz.resize();
         getsngz.resize();
@@ -211,11 +213,24 @@
         getdtgzzs.resize();
         getnygzzs.resize();
         getgzqyfx.resize();
+
+        /*执行方法的地方*/
+        if(resetCode()){
+            countStatus();
+            countMalfunctionNum();
+            selectProjectAllLocation();
+            malfunctionGraph('month');
+            malfunctionGraph('year');
+            malfunctionLevel(rem);
+            countMalfunctionForDayAndMonth();
+            getProjectList();
+        }
+
+        /*执行方法的地方 end*/
     });
     $(window).resize(function() {
         let rem = parseFloat($("html").css("font-size").replace("px"));
-        getdtgzzs.setOption(dtbygzzs(1,rem));
-        getnygzzs.setOption(dtbygzzs(2,rem));
+        malfunctionLevel(rem);
         getgzqyfx.setOption(gzqyfx(rem));
         getsygz.resize();
         getsngz.resize();
@@ -225,28 +240,6 @@
         getgzqyfx.resize();
     });
     /*所有的ECharts用的 end*/
-
-    $.ajax({
-        url:url+'lamp/status/initialize',
-        type:'post',
-        dataType:'json',
-        data:{
-            token:token,
-        }
-    }).done(function (data) {
-        console.log(data);
-        $.ajax({
-            url:url+'lamp/status/countStatus',
-            type:'post',
-            dataType:'json',
-            data:{
-                token:token,
-            }
-        }).done(function (info) {
-            console.log(info.data);
-            $('#scrollSum').val(parseInt(info.data));
-        })
-    });
 
     /*滚动数字用的*/
     let scrollSum = 0;
@@ -259,7 +252,7 @@
              }else {
                  scrollSum = $('#scrollSum').val();
              }
-        },1000);
+        },2000);
     });
 
     function show_num1(n) {
@@ -303,6 +296,9 @@
         geoCoordMap[name] = v.properties.cp;
     });
     /*地图 end*/
+
+
+
 
 </script>
 </body>

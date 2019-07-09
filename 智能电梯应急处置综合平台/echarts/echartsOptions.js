@@ -357,22 +357,22 @@ function dtztxxsl(){
 	return option;
 }
 
+
 /* 当天和本月的故障指数 饼形图*/
 function dtbygzzs(typeNum,rem){
-	let color= ['#fb734e', '#e32f46','#94d96c', '#0bbcb7','#1a9bfc','#7049f0'];
-	if(rem <= 32){
+	let color= ['#fb734e', '#e32f46','#94d96c', '#0bbcb7','#1a9bfc','#7049f0'];//用到的颜色数组
+	if(rem <= 32){//判断也页面字体的大小
 		rem = 100;
 	}else if(rem>32 && rem <=42){
 		rem = 200;
 	}
-	console.log(rem);
+	/* 创建环形的比例位置 */
 	let Line1Arr = [0.60 * rem , 0.68 * rem];	/*76.8*/
 	let Line2Arr = [0.45 * rem , 0.53 * rem];
 	let Line3Arr = [0.30 * rem , 0.38 * rem];
 	let fontSize = 0.4 * rem;
 	let typeArr=[];
-
-	switch (typeNum) {
+	switch (typeNum) {//区分质量等级的参数
 		//1：优  2：中  3：差
 		case 1:
 			typeArr=[['优','#0bbcb7'],[1,0],[1,99],[1,99]];
@@ -621,6 +621,6 @@ function gzqyfx(rem) {
 				]
 			}
 		]
-	};
+	}
 	return option;
 }

@@ -46,7 +46,7 @@
         justify-content: space-around;
     }
     .dt-num > div{
-        width: 34%;
+        width: 30%;
         height: 4rem;
         line-height: 4rem;
         border-radius: 0.5rem;
@@ -55,7 +55,7 @@
         text-align: center;
     }
     .dt-num > div > div:first-child{
-        width: 15%;
+        width: 18%;
         writing-mode: vertical-rl;
         border-radius: 0.5rem 0 0 0.5rem;
         line-height: normal;

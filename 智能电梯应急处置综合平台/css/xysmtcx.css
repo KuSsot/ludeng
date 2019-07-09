@@ -40,7 +40,7 @@ body {
     height: -moz-calc(100% - 0.81rem);
     /*默认*/
     height:calc(100% - 0.81rem);
-    background: linear-gradient(#1e2e68, #000000);
+    background: linear-gradient(#213172, #03030f);
     display: flex;
     flex-wrap: wrap;
 }
@@ -57,6 +57,13 @@ body {
 .red {/*橙红色*/
     background: linear-gradient(#FF8566, #F56D50);
 }
+.yellow{/*黄色*/
+    background: linear-gradient(#f4e925, #cdc225);
+}
+.pink{/*粉色*/
+    background: linear-gradient(#ff68aa, #EF629F);
+}
+
     /*方框的背景色 end*/
     /*字的颜色*/
 .fpurple{/*紫色*/

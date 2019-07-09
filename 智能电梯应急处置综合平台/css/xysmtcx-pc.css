@@ -5,6 +5,10 @@
     }
     body{
         font-size: 0.21rem;
+        height: auto;
+        min-height: 100%;
+        background: linear-gradient(#1e2e68, #000000);
+        align-items: center;
     }
     /*<!--头部标签栏-->*/
     .dt-nav{
@@ -36,10 +40,10 @@
     .dt-content{
         flex-wrap: nowrap;
         justify-content: space-around;
+        height: 11rem;
     }
     .dt-content > .content-box{
         width: 100%;
-        height: 97%;
         margin:1% 1% 0 1%;
     }
     .dt-content>.content-box:first-child {
@@ -52,7 +56,7 @@
         width: 30%;
     }
     .content-box>.box-info:first-child{
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.2rem;
     }
     .content-box>.box-info{
         width: 100%;
@@ -77,25 +81,24 @@
         /*<!--基础数据-->*/
     .dt-num{
         width: 100%;
-        height: 100%;
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-around;
     }
     .dt-num>div {
-        width: 1.3rem;
-        min-width: 100px;
-        height: 0.75rem;
+        width: 32%;
+        min-width: 80px;
+        height: 0.85rem;
         min-height: 60px;
         display: flex;
-        border-radius:0.06rem;
+        border-radius:0.05rem;
         color: white;
         line-height: 0.75rem;
         text-align: center;
-        margin: 0.1rem;
+        margin: 0.1rem 0;
     }
     .dt-num>div>div:first-child {
-        width: 16%;
-        height: 100%;
+        width: 18%;
         min-height: 60px;
         line-height: normal;
         writing-mode: vertical-rl;
@@ -103,6 +106,7 @@
         background-color: rgba(0, 0, 0, 0.3);
         padding: 0 2%;
         white-space: nowrap;
+        border-radius:0.05rem 0 0 0.05rem;
     }
     .dt-num>div>div:last-child {
         margin: 0 auto;
@@ -115,21 +119,21 @@
         /*<!--基础数据 end-->*/
         /*<!--路灯信息-->*/
     .content-box:first-child > .box-info:last-child{
-        height: 66%;
+        /*height: 66%;*/
     }
     .content-box:first-child > .box-info:last-child > .dt-data{
-        height: calc(100% - 0.8rem);
+        /*height: calc(100% - 0.8rem);*/
     }
     #sygz{
-        height: 38%;
+        height: 2.5rem;
     }
     #sngz{
-        height: 38%;
+        height: 2.5rem;
     }
         /*<!--路灯信息 end-->*/
         /*<!--路灯状态信息数量-->*/
     .content-box:nth-child(2)>.box-info:first-child{
-        height: 45%;
+        height: 5.5rem;
     }
     .content-box:nth-child(2)>.box-info:first-child > .content-box-title{
         display: flex;
@@ -140,7 +144,7 @@
     }
     #dtztxxsl{
         width: 100%;
-        height: 140%;
+        height: 6rem;
     }
             /*滚动数字的样式*/
     #all{
@@ -160,7 +164,7 @@
         /*<!--路灯状态信息数量 end-->*/
         /*<!--视频监控-->*/
     .content-box:nth-child(2)>.box-info:last-child{
-        height: 45%;
+        height: 4rem;
 
     }
     .content-box:nth-child(2)>.box-info:last-child > .dt-data{
